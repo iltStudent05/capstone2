@@ -1,0 +1,161 @@
+.layout {
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.site-header {
+  border-bottom: 1px solid #d1d5db;
+  background-color: #ffffff;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 64px;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-link {
+  color: #1f2937;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-link.active {
+  text-decoration: underline;
+}
+
+.page-content {
+  padding: 1.5rem 0;
+}
+
+.status-message {
+  margin: 0 0 1rem;
+  color: #374151;
+}
+
+.status-error {
+  margin: 0 0 1rem;
+  color: #b91c1c;
+}
+
+.empty-state {
+  margin: 0;
+  color: #4b5563;
+}
+
+.customer-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+.customer-table th,
+.customer-table td {
+  border: 1px solid #d1d5db;
+  padding: 0.625rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.customer-table th {
+  background: #f3f4f6;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.button {
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.button-primary {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.button-secondary {
+  background: #ffffff;
+  color: #111827;
+  border-color: #d1d5db;
+}
+
+.button-danger {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.customer-form {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.input {
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.input.invalid {
+  border-color: #dc2626;
+}
+
+.field-error {
+  color: #b91c1c;
+}
+
+.form-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
