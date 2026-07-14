@@ -81,8 +81,6 @@ export function CustomerProvider({ children }: CustomerProviderProps) {
     if (!createdCustomer) {
       return false
     }
-
-    dispatch({ type: 'ADD_CUSTOMER', payload: createdCustomer })
     return true
   }
 
@@ -91,8 +89,6 @@ export function CustomerProvider({ children }: CustomerProviderProps) {
     if (!updatedCustomer) {
       return false
     }
-
-    dispatch({ type: 'UPDATE_CUSTOMER', payload: updatedCustomer })
     return true
   }
 
@@ -101,8 +97,6 @@ export function CustomerProvider({ children }: CustomerProviderProps) {
     if (!deleted) {
       return false
     }
-
-    dispatch({ type: 'DELETE_CUSTOMER', payload: customerId })
     return true
   }
 
