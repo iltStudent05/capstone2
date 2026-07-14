@@ -18,6 +18,10 @@ const EMPTY_FORM: CustomerFormData = {
 }
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const NAME_PATTERN = /^[A-Za-z][A-Za-z\s'.-]{1,}$/
+const PHONE_PATTERN = /^(?:\d{3}-?\d{3}-?\d{4}|\(\d{3}\)\s?\d{3}-?\d{4})$/
+const STATE_PATTERN = /^[A-Za-z]{2}$/
+const ZIP_PATTERN = /^\d{5}(?:-\d{4})?$/
 
 function CustomerForm({ initialData, onSubmit, onCancel }: Props) {
   const [formData, setFormData] = useState<CustomerFormData>(
@@ -38,6 +42,8 @@ function CustomerForm({ initialData, onSubmit, onCancel }: Props) {
 
     if (!formData.name.trim()) {
       nextErrors.name = 'Name is required.'
+    } else if (!NAME_PATTERN.test(formData.name.trim())) {
+      nextErrors.name = 'Name must be at least 2 characters and use letters.'
     }
 
     if (!formData.email.trim()) {
@@ -48,6 +54,20 @@ function CustomerForm({ initialData, onSubmit, onCancel }: Props) {
 
     if (!formData.phone.trim()) {
       nextErrors.phone = 'Phone is required.'
+    } else if (!PHONE_PATTERN.test(formData.phone.trim())) {
+      nextErrors.phone = 'Phone must be valid (e.g., 555-123-4567).'
+    }
+
+    if (!formData.state.trim()) {
+      nextErrors.state = 'State is required.'
+    } else if (!STATE_PATTERN.test(formData.state.trim())) {
+      nextErrors.state = 'State must be a 2-letter code.'
+    }
+
+    if (!formData.zip.trim()) {
+      nextErrors.zip = 'ZIP is required.'
+    } else if (!ZIP_PATTERN.test(formData.zip.trim())) {
+      nextErrors.zip = 'ZIP must be 5 digits or ZIP+4 format.'
     }
 
     setErrors(nextErrors)
@@ -179,8 +199,15 @@ function CustomerForm({ initialData, onSubmit, onCancel }: Props) {
             type="text"
             value={formData.state}
             onChange={(event) => handleChange('state', event.target.value)}
-            className="input"
+            className={errors.state ? 'input invalid' : 'input'}
+            aria-invalid={Boolean(errors.state)}
+            aria-describedby={errors.state ? 'state-error' : undefined}
           />
+          {errors.state && (
+            <small id="state-error" className="field-error" role="alert">
+              Error: {errors.state}
+            </small>
+          )}
         </div>
 
         <div className="form-field">
@@ -190,8 +217,15 @@ function CustomerForm({ initialData, onSubmit, onCancel }: Props) {
             type="text"
             value={formData.zip}
             onChange={(event) => handleChange('zip', event.target.value)}
-            className="input"
+            className={errors.zip ? 'input invalid' : 'input'}
+            aria-invalid={Boolean(errors.zip)}
+            aria-describedby={errors.zip ? 'zip-error' : undefined}
           />
+          {errors.zip && (
+            <small id="zip-error" className="field-error" role="alert">
+              Error: {errors.zip}
+            </small>
+          )}
         </div>
       </div>
 

@@ -24,7 +24,7 @@ describe('CustomerForm', () => {
 
     await user.type(screen.getByLabelText('Name'), 'Test User')
     await user.type(screen.getByLabelText('Email'), 'test@example.com')
-    await user.type(screen.getByLabelText('Phone'), '555-0000')
+    await user.type(screen.getByLabelText('Phone'), '555-123-4567')
     await user.type(screen.getByLabelText('Address'), '123 Test St')
     await user.type(screen.getByLabelText('City'), 'Testville')
     await user.type(screen.getByLabelText('State'), 'TX')
@@ -35,7 +35,7 @@ describe('CustomerForm', () => {
     expect(onSubmit).toHaveBeenCalledWith({
       name: 'Test User',
       email: 'test@example.com',
-      phone: '555-0000',
+      phone: '555-123-4567',
       address: '123 Test St',
       city: 'Testville',
       state: 'TX',

@@ -12,7 +12,7 @@
 
 .site-header {
   border-bottom: 1px solid var(--border);
-  background-color: var(--surface);
+  background: linear-gradient(90deg, var(--surface), var(--surface-muted));
 }
 
 .header-inner {
@@ -49,6 +49,8 @@
 
 .nav-link.active {
   text-decoration: underline;
+  text-decoration-color: var(--button-primary-bg);
+  text-underline-offset: 4px;
 }
 
 .page-content {
@@ -123,6 +125,7 @@
 .button-primary {
   background: var(--button-primary-bg);
   color: var(--button-primary-text);
+  border-color: transparent;
 }
 
 .button-secondary {
@@ -145,6 +148,7 @@
   border: 1px solid var(--border);
   padding: 1rem;
   border-radius: 0.5rem;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--button-primary-bg) 12%, transparent);
 }
 
 .form-grid {
@@ -238,6 +242,10 @@
   display: flex;
   gap: 0.75rem;
   align-items: center;
+}
+
+.customer-table th {
+  font-weight: 700;
 }
 
 .page-indicator {
