@@ -7,6 +7,15 @@ type Props = {
 }
 
 function CustomerList({ customers, onDelete }: Props) {
+  const handleDelete = (customerId: number, customerName: string) => {
+    const confirmed = window.confirm(
+      `Delete customer ${customerName}? This action cannot be undone.`,
+    )
+    if (confirmed) {
+      void onDelete(customerId)
+    }
+  }
+
   if (customers.length === 0) {
     return <p className="empty-state">No customers found.</p>
   }
@@ -30,13 +39,18 @@ function CustomerList({ customers, onDelete }: Props) {
             <td>{customer.phone}</td>
             <td>{customer.city}</td>
             <td className="actions-cell">
-              <Link to={`/edit/${customer.id}`} className="button button-secondary">
+              <Link
+                to={`/edit/${customer.id}`}
+                className="button button-secondary"
+                aria-label={`Edit ${customer.name}`}
+              >
                 Edit
               </Link>
               <button
                 type="button"
                 className="button button-danger"
-                onClick={() => void onDelete(customer.id)}
+                aria-label={`Delete ${customer.name}`}
+                onClick={() => handleDelete(customer.id, customer.name)}
               >
                 Delete
               </button>

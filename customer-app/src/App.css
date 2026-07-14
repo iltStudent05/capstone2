@@ -159,3 +159,11 @@
     grid-template-columns: 1fr;
   }
 }
+
+.error-boundary {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #fca5a5;
+  border-radius: 0.5rem;
+  background: #fff1f2;
+}

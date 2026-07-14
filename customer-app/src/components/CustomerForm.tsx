@@ -96,78 +96,103 @@ function CustomerForm({ initialData, onSubmit, onCancel }: Props) {
   return (
     <form className="customer-form" onSubmit={handleSubmit} noValidate>
       <div className="form-grid">
-        <label className="form-field">
-          <span>Name</span>
+        <div className="form-field">
+          <label htmlFor="name">Name</label>
           <input
+            id="name"
             type="text"
             value={formData.name}
             onChange={(event) => handleChange('name', event.target.value)}
             className={errors.name ? 'input invalid' : 'input'}
+            aria-invalid={Boolean(errors.name)}
+            aria-describedby={errors.name ? 'name-error' : undefined}
           />
-          {errors.name && <small className="field-error">{errors.name}</small>}
-        </label>
+          {errors.name && (
+            <small id="name-error" className="field-error" role="alert">
+              Error: {errors.name}
+            </small>
+          )}
+        </div>
 
-        <label className="form-field">
-          <span>Email</span>
+        <div className="form-field">
+          <label htmlFor="email">Email</label>
           <input
+            id="email"
             type="email"
             value={formData.email}
             onChange={(event) => handleChange('email', event.target.value)}
             className={errors.email ? 'input invalid' : 'input'}
+            aria-invalid={Boolean(errors.email)}
+            aria-describedby={errors.email ? 'email-error' : undefined}
           />
-          {errors.email && <small className="field-error">{errors.email}</small>}
-        </label>
+          {errors.email && (
+            <small id="email-error" className="field-error" role="alert">
+              Error: {errors.email}
+            </small>
+          )}
+        </div>
 
-        <label className="form-field">
-          <span>Phone</span>
+        <div className="form-field">
+          <label htmlFor="phone">Phone</label>
           <input
+            id="phone"
             type="text"
             value={formData.phone}
             onChange={(event) => handleChange('phone', event.target.value)}
             className={errors.phone ? 'input invalid' : 'input'}
+            aria-invalid={Boolean(errors.phone)}
+            aria-describedby={errors.phone ? 'phone-error' : undefined}
           />
-          {errors.phone && <small className="field-error">{errors.phone}</small>}
-        </label>
+          {errors.phone && (
+            <small id="phone-error" className="field-error" role="alert">
+              Error: {errors.phone}
+            </small>
+          )}
+        </div>
 
-        <label className="form-field">
-          <span>Address</span>
+        <div className="form-field">
+          <label htmlFor="address">Address</label>
           <input
+            id="address"
             type="text"
             value={formData.address}
             onChange={(event) => handleChange('address', event.target.value)}
             className="input"
           />
-        </label>
+        </div>
 
-        <label className="form-field">
-          <span>City</span>
+        <div className="form-field">
+          <label htmlFor="city">City</label>
           <input
+            id="city"
             type="text"
             value={formData.city}
             onChange={(event) => handleChange('city', event.target.value)}
             className="input"
           />
-        </label>
+        </div>
 
-        <label className="form-field">
-          <span>State</span>
+        <div className="form-field">
+          <label htmlFor="state">State</label>
           <input
+            id="state"
             type="text"
             value={formData.state}
             onChange={(event) => handleChange('state', event.target.value)}
             className="input"
           />
-        </label>
+        </div>
 
-        <label className="form-field">
-          <span>ZIP</span>
+        <div className="form-field">
+          <label htmlFor="zip">ZIP</label>
           <input
+            id="zip"
             type="text"
             value={formData.zip}
             onChange={(event) => handleChange('zip', event.target.value)}
             className="input"
           />
-        </label>
+        </div>
       </div>
 
       <div className="form-actions">

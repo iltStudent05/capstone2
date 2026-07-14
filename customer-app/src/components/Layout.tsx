@@ -8,7 +8,7 @@ function Layout() {
           <h1 className="site-title">Customer Manager</h1>
           <nav className="nav-links" aria-label="Main navigation">
             <NavLink
-              to="/"
+              to="."
               end
               className={({ isActive }) =>
                 isActive ? 'nav-link active' : 'nav-link'
@@ -17,7 +17,7 @@ function Layout() {
               Customers
             </NavLink>
             <NavLink
-              to="/add"
+              to="add"
               className={({ isActive }) =>
                 isActive ? 'nav-link active' : 'nav-link'
               }
