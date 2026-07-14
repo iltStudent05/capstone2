@@ -38,7 +38,13 @@ describe('CustomerList', () => {
   it('renders customer names', () => {
     render(
       <MemoryRouter>
-        <CustomerList customers={customers} onDelete={vi.fn()} />
+        <CustomerList
+          customers={customers}
+          onDelete={vi.fn()}
+          sortField="name"
+          sortDirection="asc"
+          onSort={vi.fn()}
+        />
       </MemoryRouter>,
     )
 
@@ -49,7 +55,13 @@ describe('CustomerList', () => {
   it('shows empty state when there are no customers', () => {
     render(
       <MemoryRouter>
-        <CustomerList customers={[]} onDelete={vi.fn()} />
+        <CustomerList
+          customers={[]}
+          onDelete={vi.fn()}
+          sortField="name"
+          sortDirection="asc"
+          onSort={vi.fn()}
+        />
       </MemoryRouter>,
     )
 
@@ -61,7 +73,13 @@ describe('CustomerList', () => {
 
     render(
       <MemoryRouter>
-        <CustomerList customers={customers} onDelete={onDelete} />
+        <CustomerList
+          customers={customers}
+          onDelete={onDelete}
+          sortField="name"
+          sortDirection="asc"
+          onSort={vi.fn()}
+        />
       </MemoryRouter>,
     )
 
@@ -75,7 +93,13 @@ describe('CustomerList', () => {
   it('renders edit links with the correct routes', () => {
     render(
       <MemoryRouter>
-        <CustomerList customers={customers} onDelete={vi.fn()} />
+        <CustomerList
+          customers={customers}
+          onDelete={vi.fn()}
+          sortField="name"
+          sortDirection="asc"
+          onSort={vi.fn()}
+        />
       </MemoryRouter>,
     )
 
